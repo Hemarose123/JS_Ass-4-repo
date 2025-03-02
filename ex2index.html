@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Wrapper Function</title>
+  </head>
+  <body>
+    <h2>Array Wrapper Function</h2>
+
+    <label for="operation">Choose Operation:</label>
+    <select id="operation">
+      <option value="Add">Add</option>
+      <option value="String">String</option>
+    </select>
+
+    <br /><br />
+
+    <label for="inputArray">Enter Array (JSON format):</label>
+    <input type="text" id="inputArray" value="[[1,2],[3,4]]" />
+
+    <br /><br />
+
+    <button onclick="processArray()">Process</button>
+
+    <h3>Output:</h3>
+    <p id="output"></p>
+
+    <script>
+      function processArray() {
+        let nums = JSON.parse(document.getElementById("inputArray").value);
+        let operation = document.getElementById("operation").value;
+        let result;
+
+        if (operation === "Add") {
+          result = nums.flat().reduce((sum, num) => sum + num, 0);
+        } else if (operation === "String") {
+          result = nums.flat();
+        }
+
+        document.getElementById("output").innerText = JSON.stringify(result);
+      }
+    </script>
+  </body>
+</html>

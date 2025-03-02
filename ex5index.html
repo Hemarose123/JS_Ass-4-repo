@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Spaces</title>
+  </head>
+  <body>
+    <h2>Remove Spaces from a String (Without Built-in Functions)</h2>
+
+    <label for="inputString">Enter String:</label>
+    <input type="text" id="inputString" value="Hello World !" />
+
+    <br /><br />
+
+    <button onclick="removeSpaces()">Process</button>
+
+    <h3>Output:</h3>
+    <p id="output"></p>
+
+    <script>
+      function removeSpaces() {
+        let str = document.getElementById("inputString").value;
+        let result = "";
+
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] !== " ") {
+            result += str[i];
+          }
+        }
+
+        document.getElementById("output").innerText = result;
+      }
+    </script>
+  </body>
+</html>

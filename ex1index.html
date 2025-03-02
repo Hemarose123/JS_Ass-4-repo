@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Password Strength Validator</title>
+  </head>
+  <body>
+    <input type="password" id="password" placeholder="Enter password" />
+    <button onclick="validatePassword()">Check Strength</button>
+    <p id="result"></p>
+
+    <script>
+      function validatePassword() {
+        let password = document.getElementById("password").value;
+        let length = password.length >= 8;
+        let lowercase = /[a-z]/.test(password);
+        let uppercase = /[A-Z]/.test(password);
+        let digit = /\d/.test(password);
+        let specialChar = /[\W_]/.test(password);
+
+        if (length && lowercase && uppercase && digit && specialChar) {
+          document.getElementById("result").innerText = "Strong Password";
+        } else {
+          document.getElementById("result").innerText = "Weak Password";
+        }
+      }
+    </script>
+  </body>
+</html>

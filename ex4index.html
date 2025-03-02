@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Move Zeroes to End</title>
+  </head>
+  <body>
+    <h2>Move Zeroes to End of an Array</h2>
+
+    <label for="inputArray">Enter Array (JSON format):</label>
+    <input type="text" id="inputArray" value="[0,1,0,3,12]" />
+
+    <br /><br />
+
+    <button onclick="moveZeroes()">Process</button>
+
+    <h3>Output:</h3>
+    <p id="output"></p>
+
+    <script>
+      function moveZeroes() {
+        let nums = JSON.parse(document.getElementById("inputArray").value);
+
+        let nonZeroes = nums.filter((num) => num !== 0);
+        let zeroes = nums.filter((num) => num === 0);
+        let result = [...nonZeroes, ...zeroes];
+
+        document.getElementById("output").innerText = JSON.stringify(result);
+      }
+    </script>
+  </body>
+</html>

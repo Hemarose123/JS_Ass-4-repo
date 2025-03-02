@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modify and Expand Array</title>
+  </head>
+  <body>
+    <h2>Modify and Expand an Array with a Pattern</h2>
+
+    <label for="inputArray">Enter Array (JSON format):</label>
+    <input type="text" id="inputArray" value="[5, 10, 20, 2, 0, 33, 100, 90]" />
+
+    <br /><br />
+
+    <button onclick="modifyArray()">Process</button>
+
+    <h3>Output:</h3>
+    <p id="output"></p>
+
+    <script>
+      function modifyArray() {
+        let arr = JSON.parse(document.getElementById("inputArray").value);
+        let result = [];
+
+        for (let i = 0; i < arr.length; i++) {
+          result.push(arr[i]);
+
+          if (i < arr.length - 1) {
+            let avg = Math.floor((arr[i] + arr[i + 1]) / 2);
+            result.push(avg);
+          }
+        }
+
+        document.getElementById("output").innerText = JSON.stringify(result);
+      }
+    </script>
+  </body>
+</html>
